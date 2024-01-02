@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use App\Models\Diskon;
 use App\Models\Identitas;
 use Illuminate\Http\Request;
+use Illuminate\Support\Carbon;
 use App\Http\Controllers\Controller;
 
 class DiskonController extends Controller
@@ -54,12 +55,26 @@ class DiskonController extends Controller
         return redirect()->route($role . '.diskon.index')->with('success', 'Succesfully updated a Discount.');
     }
 
+    // public function destroy($id)
+    // {
+    //     $role = auth()->user()->role;
+    //     $diskon = Diskon::find($id);
+    //     $diskon->delete();
+
+    //     return redirect()->route($role . '.diskon.index')->with('success', 'Successfully deleted a Discount.');
+    // }
+
     public function destroy($id)
     {
         $role = auth()->user()->role;
         $diskon = Diskon::find($id);
-        $diskon->delete();
 
-        return redirect()->route($role . '.diskon.index')->with('success', 'Successfully deleted a Discount.');
+        $tanggalBerakhir = Carbon::parse($diskon->tanggal_berakhir);
+        if ($tanggalBerakhir->isPast()) {
+            $diskon->delete();
+            return redirect()->route($role . '.diskon.index')->with('success', 'Successfully deleted an expired Discount.');
+        }
+
+        return redirect()->route($role . '.diskon.index')->with('error', 'Cannot delete an active Discount.');
     }
 }

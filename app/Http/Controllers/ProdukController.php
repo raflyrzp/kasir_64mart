@@ -37,17 +37,6 @@ class ProdukController extends Controller
             'harga' => 'required|numeric|min:0',
             'stok' => 'required|numeric',
             'barcode' => 'nullable'
-        ], [
-            'nama_produk.required' => 'The product name field is required.',
-            'nama_produk.string' => 'The product name must be a string.',
-            'nama_produk.max' => 'The product name may not be greater than :max characters.',
-            'id_kategori.required' => 'The category field is required.',
-            'id_kategori.exists' => 'The selected category is invalid.',
-            'harga.required' => 'The price field is required.',
-            'harga.numeric' => 'The price must be a number.',
-            'harga.min' => 'The price must be at least :min.',
-            'stok.required' => 'The stock field is required.',
-            'stok.numeric' => 'The stock must be a number.',
         ]);
 
         $existingProduk = Produk::where('nama_produk', $request->nama_produk)->first();

@@ -18,12 +18,12 @@ class CleanupExpiredDiscounts extends Command
     public function handle()
     {
         // Ambil semua diskon yang sudah berakhir
-        $expiredDiscounts = Diskon::where('tanggal_berakhir', '<', Carbon::now())->get();
+        $expiredDiscounts = Diskon::where('tanggal_berakhir', '<', now())->delete();
 
-        // Hapus diskon yang sudah berakhir
-        foreach ($expiredDiscounts as $discount) {
-            $discount->delete();
-        }
+        // // Hapus diskon yang sudah berakhir
+        // foreach ($expiredDiscounts as $discount) {
+        //     $discount->delete();
+        // }
 
         $this->info('Expired discounts have been cleaned up.');
     }

@@ -18,6 +18,9 @@ class EventServiceProvider extends ServiceProvider
         Registered::class => [
             SendEmailVerificationNotification::class,
         ],
+        'Illuminate\Console\Events\ScheduledTaskFinished' => [
+            'App\Listeners\DiskonExpireListener',
+        ],
     ];
 
     /**
