@@ -54,7 +54,6 @@
                         </div>
                         <div class="card-content">
                             <div class="card-body">
-                                <p class="text-muted">*barcode scanner feature is under development</p>
                                 <form class="form" id="barcode-form" method="post">
                                     @csrf
                                     <div class="form-group">
@@ -65,15 +64,15 @@
                                 <form class="form" id="form-keranjang" method="post">
                                     @csrf
                                     <div class="row">
-                                        <div class="col-md-6 col-12">
+                                        {{-- <div class="col-md-6 col-12">
                                             <div class="form-group">
                                                 <label for="id_user">Cashier</label>
                                                 <input type="text" class="form-control"
                                                     value="{{ auth()->user()->name }}" readonly>
-                                                <input type="hidden" id="id_user" name="id_user"
-                                                    value="{{ auth()->user()->id }}">
                                             </div>
-                                        </div>
+                                        </div> --}}
+                                        <input type="hidden" id="id_user" name="id_user"
+                                            value="{{ auth()->user()->id }}">
                                         <div class="col-md-6 col-12">
                                             <div class="form-group">
                                                 <label for="id_produk">Product</label>

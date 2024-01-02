@@ -6,6 +6,7 @@ use App\Models\Produk;
 use App\Models\Kategori;
 use App\Models\Identitas;
 use Illuminate\Http\Request;
+use Illuminate\Validation\Rule;
 use App\Http\Controllers\Controller;
 
 class ProdukController extends Controller
@@ -36,35 +37,59 @@ class ProdukController extends Controller
             'harga' => 'required|numeric|min:0',
             'stok' => 'required|numeric',
             'barcode' => 'nullable'
+        ], [
+            'nama_produk.required' => 'The product name field is required.',
+            'nama_produk.string' => 'The product name must be a string.',
+            'nama_produk.max' => 'The product name may not be greater than :max characters.',
+            'id_kategori.required' => 'The category field is required.',
+            'id_kategori.exists' => 'The selected category is invalid.',
+            'harga.required' => 'The price field is required.',
+            'harga.numeric' => 'The price must be a number.',
+            'harga.min' => 'The price must be at least :min.',
+            'stok.required' => 'The stock field is required.',
+            'stok.numeric' => 'The stock must be a number.',
         ]);
 
-        $latestProduk = Produk::orderBy('kode_produk', 'desc')->first();
+        $existingProduk = Produk::where('nama_produk', $request->nama_produk)->first();
 
-        if ($latestProduk) {
-            $latestProdukNumber = (int)substr($latestProduk->kode_produk, 3);
-            $nextProdukNumber = $latestProdukNumber + 1;
-            $kodeProduk = 'PRD' . str_pad($nextProdukNumber, 3, '0', STR_PAD_LEFT);
+        if ($existingProduk) {
+            $existingProduk->stok += $request->stok;
+            $existingProduk->save();
         } else {
-            $kodeProduk = 'PRD001';
-        }
+            $latestProduk = Produk::orderBy('kode_produk', 'desc')->first();
 
-        Produk::create([
-            'kode_produk' => $kodeProduk,
-            'nama_produk' => $request->nama_produk,
-            'id_kategori' => $request->id_kategori,
-            'harga' => $request->harga,
-            'stok' => $request->stok,
-            'barcode' => $request->barcode,
-        ]);
+            if ($latestProduk) {
+                $latestProdukNumber = (int)substr($latestProduk->kode_produk, 3);
+                $nextProdukNumber = $latestProdukNumber + 1;
+                $kodeProduk = 'PRD' . str_pad($nextProdukNumber, 3, '0', STR_PAD_LEFT);
+            } else {
+                $kodeProduk = 'PRD001';
+            }
+
+            Produk::create([
+                'kode_produk' => $kodeProduk,
+                'nama_produk' => $request->nama_produk,
+                'id_kategori' => $request->id_kategori,
+                'harga' => $request->harga,
+                'stok' => $request->stok,
+                'barcode' => $request->barcode,
+            ]);
+        }
 
         return redirect()->route($role . '.produk.index')->with('success', 'Successfully added a new product.');
     }
+
 
     public function update(Request $request, $id)
     {
         $role = auth()->user()->role;
         $request->validate([
-            'nama_produk' => 'required|string|max:255',
+            'nama_produk' => [
+                'required',
+                'string',
+                'max:255',
+                Rule::unique('produk', 'nama_produk')->ignore($id),
+            ],
             'id_kategori' => 'required|exists:kategori,id',
             'harga' => 'required|numeric|min:0',
             'stok' => 'required|numeric',

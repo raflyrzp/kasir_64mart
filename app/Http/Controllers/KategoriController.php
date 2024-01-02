@@ -28,7 +28,7 @@ class KategoriController extends Controller
     {
         $role = auth()->user()->role;
         $request->validate([
-            'nama_kategori' => 'required|string|max:255',
+            'nama_kategori' => 'required|string|max:255|unique:kategori,nama_kategori',
         ]);
 
         Kategori::create([
@@ -42,7 +42,7 @@ class KategoriController extends Controller
     {
         $role = auth()->user()->role;
         $request->validate([
-            'nama_kategori' => 'required|string|max:255',
+            'nama_kategori' => 'required|string|max:255|unique:kategori,nama_kategori',
         ]);
 
         $kategori = Kategori::find($id);

@@ -61,7 +61,7 @@
                                             <div class="form-group">
                                                 <label for="first-name-column">Category name</label>
                                                 <input type="text" id="first-name-column" class="form-control"
-                                                    placeholder="Category name" name="nama_kategori">
+                                                    placeholder="" name="nama_kategori" required>
                                             </div>
                                         </div>
                                         <div class="col-12 d-flex justify-content-end">

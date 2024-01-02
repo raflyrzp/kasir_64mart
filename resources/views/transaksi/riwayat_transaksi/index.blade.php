@@ -47,9 +47,9 @@
                                     <th>Transaction date</th>
                                     <th>Cashier</th>
                                     <th>Total price</th>
-                                    <th>Payment</th>
+                                    {{-- <th>Payment</th>
                                     <th>Disc</th>
-                                    <th>Change</th>
+                                    <th>Change</th> --}}
                                     <th class="col-2 no-print">Action</th>
                                 </tr>
                             </thead>
@@ -61,9 +61,9 @@
                                         <td>{{ $transaksi->tanggal_transaksi }}</td>
                                         <td>{{ $transaksi->user->name }}</td>
                                         <td>Rp. {{ number_format($transaksi->total_harga, 0, ',', '.') }},-</td>
-                                        <td>Rp. {{ number_format($transaksi->payment, 0, ',', '.') }},-</td>
+                                        {{-- <td>Rp. {{ number_format($transaksi->payment, 0, ',', '.') }},-</td>
                                         <td>{{ $transaksi->diskon }}%</td>
-                                        <td>Rp. {{ number_format($transaksi->change, 0, ',', '.') }},-</td>
+                                        <td>Rp. {{ number_format($transaksi->change, 0, ',', '.') }},-</td> --}}
                                         <td class="col-2 no-print">
                                             <a type="button"
                                                 href="{{ route($role . '.detail_transaksi', $transaksi->kode_transaksi) }}"

@@ -16,6 +16,7 @@ return new class extends Migration
             $table->string('kode_transaksi');
             $table->timestamp('tanggal_transaksi');
             $table->unsignedBigInteger('id_user');
+            $table->decimal('subtotal', 10, 0);
             $table->decimal('total_harga', 10, 0);
             $table->decimal('payment', 10, 0);
             $table->decimal('diskon', 10, 0)->nullable();

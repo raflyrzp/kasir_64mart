@@ -15,9 +15,9 @@
         <div class="page-title no-print">
             <div class="row">
                 <div class="col-12 col-md-6 order-md-1 order-last">
-                    <h3>Detail Transaction</h3>
+                    <h3>Transaction Detail</h3>
                     <p class="text-subtitle text-muted">
-                        Detail transaction for transaction code : {{ $kode_transaksi }}
+                        Transaction Detail for Transaction code : {{ $kode_transaksi }}
                     </p>
                 </div>
                 <div class="col-12 col-md-6 order-md-2 order-first">
@@ -42,10 +42,44 @@
         <section class="section">
             <div class="card">
                 <div class="card-header">
-                    <h5 class="card-title">Products for Transaction code : {{ $kode_transaksi }}</h5>
+                    <h5 class="card-title">Transaction Detail for Transaction Code : {{ $kode_transaksi }}</h5>
                 </div>
                 <div class="card-body">
-                    <div class="table-responsive">
+                    <div class="table-responsive col-6">
+                        <table class="table mb-0 table-md">
+                            <tbody>
+                                <tr>
+                                    <td>Transaction date</td>
+                                    <td>{{ $data_transaksi->tanggal_transaksi }}</td>
+                                </tr>
+                                <tr>
+                                    <td>Cashier</td>
+                                    <td>{{ $data_transaksi->user->name }}</td>
+                                </tr>
+                                <tr>
+                                    <td>Subtotal</td>
+                                    <td>Rp. {{ number_format($data_transaksi->subtotal, 0, ',', '.') }},-</td>
+                                </tr>
+                                <tr>
+                                    <td>Discount</td>
+                                    <td>{{ $data_transaksi->diskon }}%</td>
+                                </tr>
+                                <tr>
+                                    <td>Total price</td>
+                                    <td>Rp. {{ number_format($data_transaksi->total_harga, 0, ',', '.') }},-</td>
+                                </tr>
+                                <tr>
+                                    <td>Payment</td>
+                                    <td>Rp. {{ number_format($data_transaksi->payment, 0, ',', '.') }},-</td>
+                                </tr>
+                                <tr>
+                                    <td>Change</td>
+                                    <td>Rp. {{ number_format($data_transaksi->change, 0, ',', '.') }},-</td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                    <div class="table-responsive mt-5">
                         <button id="print-button" class="btn btn-primary mb-3"><i class="bi bi-printer"></i></button>
                         <button id="save-csv-button" class="btn btn-primary mb-3"><i
                                 class="bi bi-filetype-csv"></i></button>

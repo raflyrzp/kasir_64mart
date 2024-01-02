@@ -18,6 +18,7 @@ return new class extends Migration
             $table->decimal('harga_produk', 10, 0);
             $table->integer('kuantitas');
             $table->decimal('subtotal', 10, 0);
+            $table->decimal('total_harga', 10, 0);
             $table->timestamps();
         });
     }

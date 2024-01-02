@@ -60,22 +60,22 @@
                                         <div class="col-md-6 col-12">
                                             <div class="form-group">
                                                 <label for="nama_supplier">Supplier name</label>
-                                                <input type="text" id="nama_supplier" class="form-control"
-                                                    placeholder="Supplier name..." name="nama_supplier">
+                                                <input type="text" id="nama_supplier" class="form-control" placeholder=""
+                                                    name="nama_supplier">
                                             </div>
                                         </div>
                                         <div class="col-md-6 col-12">
                                             <div class="form-group">
                                                 <label for="alamat">Address</label>
-                                                <input type="text" id="alamat" class="form-control"
-                                                    placeholder="Address..." name="alamat">
+                                                <input type="text" id="alamat" class="form-control" placeholder=""
+                                                    name="alamat">
                                             </div>
                                         </div>
                                         <div class="col-md-6 col-12">
                                             <div class="form-group">
                                                 <label for="telp">Telp</label>
-                                                <input type="text" id="telp" class="form-control"
-                                                    placeholder="Telp..." name="telp">
+                                                <input type="text" id="telp" class="form-control" placeholder=""
+                                                    name="telp">
                                             </div>
                                         </div>
                                         <div class="col-12 d-flex justify-content-end">

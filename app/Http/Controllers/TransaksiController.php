@@ -10,6 +10,7 @@ use App\Models\Transaksi;
 use Illuminate\Http\Request;
 use Illuminate\Support\Carbon;
 use App\Models\DetailTransaksi;
+use Illuminate\Support\Facades\Log;
 use App\Http\Controllers\Controller;
 use Illuminate\Support\Facades\Session;
 
@@ -108,7 +109,6 @@ class TransaksiController extends Controller
 
     public function checkout(Request $request)
     {
-        // dd($request->all());
         $role = auth()->user()->role;
         $request->validate([
             'tanggal_transaksi' => 'required|date',
@@ -135,7 +135,8 @@ class TransaksiController extends Controller
         $transaksi = new Transaksi;
         $transaksi->kode_transaksi = $kodeTransaksi;
         $transaksi->tanggal_transaksi = $request->tanggal_transaksi;
-        $transaksi->total_harga = $request->total_harga;
+        $transaksi->subtotal = $request->total_harga;
+        $transaksi->total_harga = $request->total_harga - ($request->total_harga * $diskon / 100);
         $transaksi->payment = $request->payment;
         $transaksi->diskon = $diskon;
         $transaksi->change = $request->change;
@@ -150,12 +151,14 @@ class TransaksiController extends Controller
             if ($produk) {
                 $produk->stok -= $request->kuantitas[$key];
                 $produk->save();
+                $subtotal = $request->harga[$key] * $request->kuantitas[$key];
                 $detailTransaksi = new DetailTransaksi;
                 $detailTransaksi->kode_transaksi = $kodeTransaksi;
                 $detailTransaksi->id_produk = $id_produk;
                 $detailTransaksi->harga_produk = $request->harga[$key];
                 $detailTransaksi->kuantitas = $request->kuantitas[$key];
                 $detailTransaksi->subtotal = $request->harga[$key] * $request->kuantitas[$key];
+                $detailTransaksi->total_harga = $subtotal - ($subtotal * $diskon / 100);
                 $detailTransaksi->save();
             } else {
                 return redirect()->route($role . '.transaksi.index')->with('error', 'gagal.');

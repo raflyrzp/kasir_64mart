@@ -143,11 +143,13 @@ class ReportController extends Controller
     public function reportDetailTransaksi($role, $kodeTransaksi)
     {
         $data_detail_transaksi = DetailTransaksi::where('kode_transaksi', $kodeTransaksi)->with('produk')->get();
+        $data_transaksi = Transaksi::where('kode_transaksi', $kodeTransaksi)->first();
         $identitas = Identitas::findOrFail(1);
 
         return view('reports.detail_transaksi.index', [
             'title' => 'Transaction Detail Report',
             'data_detail_transaksi' => $data_detail_transaksi,
+            'data_transaksi' => $data_transaksi,
             'kode_transaksi' => $kodeTransaksi,
             'role' => $role,
             'identitas' => $identitas,

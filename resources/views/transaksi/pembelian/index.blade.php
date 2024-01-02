@@ -57,13 +57,13 @@
                                 <form class="form" action="{{ route($role . '.pembelian.store') }}" method="post">
                                     @csrf
                                     <div class="row">
-                                        <div class="col-md-6 col-12">
+                                        {{-- <div class="col-md-6 col-12">
                                             <div class="form-group">
                                                 <label for="tanggal_pembelian">Purchase date</label>
-                                                <input type="text" id="tanggal_pembelian" class="form-control"
-                                                    name="tanggal_pembelian" value="{{ now() }}" readonly>
                                             </div>
-                                        </div>
+                                        </div> --}}
+                                        <input type="hidden" id="tanggal_pembelian" class="form-control"
+                                            name="tanggal_pembelian" value="{{ now() }}" readonly>
                                         <div class="col-md-6 col-12">
                                             <div class="form-group">
                                                 <label for="id_produk">Product</label>

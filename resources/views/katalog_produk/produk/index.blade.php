@@ -67,8 +67,8 @@
                                         <div class="col-md-6 col-12">
                                             <div class="form-group">
                                                 <label for="nama_produk">Product name</label>
-                                                <input type="text" id="nama_produk" class="form-control"
-                                                    placeholder="Product name" name="nama_produk">
+                                                <input type="text" id="nama_produk" class="form-control" placeholder=""
+                                                    name="nama_produk" required>
                                             </div>
                                         </div>
                                         <div class="col-md-6 col-12">
@@ -90,22 +90,22 @@
                                         <div class="col-md-6 col-12">
                                             <div class="form-group">
                                                 <label for="harga">Price</label>
-                                                <input type="text" id="harga" class="form-control"
-                                                    placeholder="Price" name="harga">
+                                                <input type="text" id="harga" class="form-control" placeholder=""
+                                                    name="harga" required>
                                             </div>
                                         </div>
                                         <div class="col-md-6 col-12">
                                             <div class="form-group">
                                                 <label for="stok">Stock</label>
-                                                <input type="number" id="stok" class="form-control"
-                                                    placeholder="Stock" name="stok">
+                                                <input type="number" id="stok" class="form-control" placeholder=""
+                                                    name="stok" value="0" required>
                                             </div>
                                         </div>
                                         <div class="col-md-6 col-12">
                                             <div class="form-group">
                                                 <label for="barcode">Barcode</label>
-                                                <input type="text" id="barcode" class="form-control"
-                                                    placeholder="Barcode" name="barcode">
+                                                <input type="text" id="barcode" class="form-control" placeholder=""
+                                                    name="barcode">
                                             </div>
                                         </div>
                                     </div>
@@ -197,8 +197,8 @@
                             <div class="modal-body">
                                 <label for="nama_produk">Product name</label>
                                 <div class="form-group">
-                                    <input id="nama_produk" name="nama_produk" type="text" placeholder="Product name"
-                                        class="form-control" value="{{ $produk->nama_produk }}">
+                                    <input id="nama_produk" name="nama_produk" type="text" placeholder=""
+                                        class="form-control" value="{{ $produk->nama_produk }}" required>
                                 </div>
 
                                 <label for="id_kategori">Category</label>
@@ -215,14 +215,14 @@
 
                                 <label for="harga">Price</label>
                                 <div class="form-group">
-                                    <input type="text" id="harga" class="form-control" placeholder="Price"
-                                        name="harga" value="{{ $produk->harga }}">
+                                    <input type="text" id="harga" class="form-control" placeholder=""
+                                        name="harga" value="{{ $produk->harga }}" required>
                                 </div>
 
                                 <label for="stok">Stock</label>
                                 <div class="form-group">
-                                    <input type="text" id="stok" class="form-control" placeholder="Stock"
-                                        name="stok" value="{{ $produk->stok }}">
+                                    <input type="number" id="stok" class="form-control" placeholder=""
+                                        name="stok" value="{{ $produk->stok }}" required>
                                     <small>*if you want to increase product stock, it is recommended from the <a
                                             href="{{ route('admin.pembelian.index') }}">purchase page</a></small>
                                 </div>
@@ -276,9 +276,6 @@
                             </p>
                             <p>
                                 Price : {{ $produk->harga }}
-                            </p>
-                            <p>
-                                Description : {{ $produk->deskripsi }}
                             </p>
                         </div>
                         <div class="modal-footer">

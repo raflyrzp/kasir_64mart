@@ -70,6 +70,24 @@
                     <li class="sidebar-title">Data</li>
 
                     <li
+                        class="sidebar-item has-sub {{ $title === 'Products' || $title === 'Categories' ? 'active' : '' }}">
+                        <a href="#" class='sidebar-link'>
+                            <i class="bi bi-collection-fill"></i>
+                            <span>Product Catalogue</span>
+                        </a>
+
+                        <ul class="submenu">
+                            <li class="submenu-item {{ $title === 'Categories' ? 'active' : '' }}">
+                                <a href="{{ route($role . '.kategori.index') }}" class="submenu-link">Categories</a>
+                            </li>
+
+                            <li class="submenu-item {{ $title === 'Products' ? 'active' : '' }}">
+                                <a href="{{ route($role . '.produk.index') }}" class="submenu-link">Products</a>
+                            </li>
+                        </ul>
+                    </li>
+
+                    <li
                         class="sidebar-item has-sub {{ $title === 'Purchase' || $title === 'Transaction History' || $title === 'Discounts' || $title === 'Suppliers' ? 'active' : '' }}">
                         <a href="#" class='sidebar-link'>
                             <i class="bi bi-cash-coin"></i>
@@ -103,23 +121,8 @@
 
                     </li>
 
-                    <li
-                        class="sidebar-item has-sub {{ $title === 'Products' || $title === 'Categories' ? 'active' : '' }}">
-                        <a href="#" class='sidebar-link'>
-                            <i class="bi bi-collection-fill"></i>
-                            <span>Product Catalogue</span>
-                        </a>
 
-                        <ul class="submenu">
-                            <li class="submenu-item {{ $title === 'Categories' ? 'active' : '' }}">
-                                <a href="{{ route($role . '.kategori.index') }}" class="submenu-link">Categories</a>
-                            </li>
 
-                            <li class="submenu-item {{ $title === 'Products' ? 'active' : '' }}">
-                                <a href="{{ route($role . '.produk.index') }}" class="submenu-link">Products</a>
-                            </li>
-                        </ul>
-                    </li>
 
                     <li
                         class="sidebar-item has-sub {{ $title === 'Admins' || $title === 'Owners' || $title === 'Cashiers' ? 'active' : '' }}">

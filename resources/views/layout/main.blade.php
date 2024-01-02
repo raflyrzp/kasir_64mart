@@ -14,7 +14,6 @@
 
     <link rel="stylesheet" href="{{ asset('assets/extensions/@fortawesome/fontawesome-free/css/all.min.css') }}">
 
-
     <link rel="stylesheet" href="{{ asset('./assets/compiled/css/app.css') }}">
     <link rel="stylesheet" href="{{ asset('./assets/compiled/css/app-dark.css') }}">
     <link rel="stylesheet" href="{{ asset('./assets/compiled/css/iconly.css') }}">
@@ -28,7 +27,6 @@
     <link rel="stylesheet" href="{{ asset('./assets/compiled/css/table-datatable-jquery.css') }}" />
 
 
-
     {{-- Choices --}}
     <link rel="stylesheet" href="{{ asset('assets/extensions/choices.js/public/assets/styles/choices.css') }}">
 
@@ -39,19 +37,16 @@
 
         @media print {
 
-            /* Sembunyikan elemen-elemen yang tidak perlu dicetak */
             body * {
                 visibility: hidden;
             }
 
-            /* Tampilkan hanya tabel yang akan dicetak */
             h5,
             #table1,
             #table1 * {
                 visibility: visible;
             }
 
-            /* Set ukuran font dan tampilan lainnya untuk pencetakan */
             #table1 {
                 font-size: 12px;
                 border-collapse: collapse;
@@ -84,8 +79,6 @@
             .no-print {
                 display: none;
             }
-
-
         }
     </style>
 </head>
@@ -119,7 +112,6 @@
     <script src="{{ asset('assets/compiled/js/app.js') }}"></script>
 
 
-
     <!-- Need: Apexcharts -->
     <script src="{{ asset('assets/extensions/apexcharts/apexcharts.min.js') }}"></script>
     <script src="{{ asset('assets/static/js/pages/dashboard.js') }}"></script>
@@ -131,8 +123,6 @@
     <script src="{{ asset('assets/extensions/datatables.net-bs5/js/dataTables.bootstrap5.min.js') }}"></script>
     <script src="{{ asset('assets/static/js/pages/datatables.js') }}"></script>
     <script src="{{ asset('assets/extensions/datatables.net-bs5/js/dataTables.bootstrap5.min.js') }}"></script>
-
-
 
 
     {{-- Choices --}}

@@ -60,15 +60,15 @@
                                         <div class="col-md-6 col-12">
                                             <div class="form-group">
                                                 <label for="nama_diskon">Discount name</label>
-                                                <input type="text" id="nama_diskon" class="form-control"
-                                                    placeholder="Discount name..." name="nama_diskon" required>
+                                                <input type="text" id="nama_diskon" class="form-control" placeholder=""
+                                                    name="nama_diskon" required>
                                             </div>
                                         </div>
                                         <div class="col-md-6 col-12">
                                             <div class="form-group">
                                                 <label for="besar_diskon">Discount Amount</label>
-                                                <input type="number" id="besar_diskon" class="form-control"
-                                                    placeholder="Discount amount..." name="besar_diskon" required>
+                                                <input type="number" id="besar_diskon" class="form-control" placeholder=""
+                                                    name="besar_diskon" required>
                                                 <small>*just write down the discount number</small>
                                             </div>
                                         </div>
@@ -77,14 +77,14 @@
                                             <div class="form-group">
                                                 <label for="tanggal_mulai">Start date</label>
                                                 <input type="date" id="tanggal_mulai" class="form-control"
-                                                    name="tanggal_mulai" placeholder="Start date...">
+                                                    name="tanggal_mulai" placeholder="">
                                             </div>
                                         </div>
                                         <div class="col-md-6 col-12">
                                             <div class="form-group">
                                                 <label for="tanggal_berakhir">End date</label>
                                                 <input type="date" id="tanggal_berakhir" class="form-control"
-                                                    name="tanggal_berakhir" placeholder="End date...">
+                                                    name="tanggal_berakhir" placeholder="">
                                             </div>
                                         </div>
                                         <div class="col-12 d-flex justify-content-end">

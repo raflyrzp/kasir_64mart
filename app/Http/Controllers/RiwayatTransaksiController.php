@@ -29,12 +29,14 @@ class RiwayatTransaksiController extends Controller
     public function showDetail($kodeTransaksi)
     {
         $data_detail_transaksi = DetailTransaksi::where('kode_transaksi', $kodeTransaksi)->with('produk')->get();
+        $data_transaksi = Transaksi::where('kode_transaksi', $kodeTransaksi)->with('user')->first();
         $role = auth()->user()->role;
         $identitas = Identitas::findOrFail(1);
 
         return view('transaksi.riwayat_transaksi.detail', [
             'title' => 'Transaction Detail',
             'data_detail_transaksi' => $data_detail_transaksi,
+            'data_transaksi' => $data_transaksi,
             'kode_transaksi' => $kodeTransaksi,
             'role' => $role,
             'identitas' => $identitas
