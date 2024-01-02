@@ -126,7 +126,8 @@
                                         <td>{{ $diskon->nama_diskon }}</td>
                                         <td>{{ $diskon->besar_diskon }}%</td>
                                         <td>{{ $diskon->tanggal_mulai }}</td>
-                                        <td>{{ $diskon->tanggal_berakhir }}</td>
+                                        <td class="{{ $diskon->tanggal_berakhir < now() ? 'text-danger' : '' }}">
+                                            {{ $diskon->tanggal_berakhir }}</td>
                                         <td class="col-2">
                                             <button type="button" class="btn btn-sm btn-primary col-12 mb-1"
                                                 data-bs-toggle="modal"

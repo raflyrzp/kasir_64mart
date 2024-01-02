@@ -55,26 +55,26 @@ class DiskonController extends Controller
         return redirect()->route($role . '.diskon.index')->with('success', 'Succesfully updated a Discount.');
     }
 
-    // public function destroy($id)
-    // {
-    //     $role = auth()->user()->role;
-    //     $diskon = Diskon::find($id);
-    //     $diskon->delete();
-
-    //     return redirect()->route($role . '.diskon.index')->with('success', 'Successfully deleted a Discount.');
-    // }
-
     public function destroy($id)
     {
         $role = auth()->user()->role;
         $diskon = Diskon::find($id);
+        $diskon->delete();
 
-        $tanggalBerakhir = Carbon::parse($diskon->tanggal_berakhir);
-        if ($tanggalBerakhir->isPast()) {
-            $diskon->delete();
-            return redirect()->route($role . '.diskon.index')->with('success', 'Successfully deleted an expired Discount.');
-        }
-
-        return redirect()->route($role . '.diskon.index')->with('error', 'Cannot delete an active Discount.');
+        return redirect()->route($role . '.diskon.index')->with('success', 'Successfully deleted a Discount.');
     }
+
+    // public function destroy($id)
+    // {
+    //     $role = auth()->user()->role;
+    //     $diskon = Diskon::find($id);
+
+    //     $tanggalBerakhir = Carbon::parse($diskon->tanggal_berakhir);
+    //     if ($tanggalBerakhir->isPast()) {
+    //         $diskon->delete();
+    //         return redirect()->route($role . '.diskon.index')->with('success', 'Successfully deleted an expired Discount.');
+    //     }
+
+    //     return redirect()->route($role . '.diskon.index')->with('error', 'Cannot delete an active Discount.');
+    // }
 }

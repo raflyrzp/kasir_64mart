@@ -200,12 +200,21 @@
                     </li>
 
                     <li class="sidebar-item">
-                        <a href="{{ route('logout') }}" class='sidebar-link'
-                            onclick="alert('Are you sure to logout?')">
+                        <a href="#" class='sidebar-link' onclick="confirmLogout()">
                             <i class="bi bi-box-arrow-right"></i>
                             <span>Logout</span>
                         </a>
                     </li>
+
+                    <script>
+                        function confirmLogout() {
+                            var isConfirmed = confirm('Are you sure to logout?');
+                            if (isConfirmed) {
+                                window.location.href = '{{ route('logout') }}';
+                            }
+                        }
+                    </script>
+
                 </ul>
             </div>
         </div>
