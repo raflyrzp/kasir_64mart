@@ -36,7 +36,7 @@ class ProdukController extends Controller
             'id_kategori' => 'required|exists:kategori,id',
             'harga' => 'required|numeric|min:0',
             'stok' => 'required|numeric',
-            'barcode' => 'nullable'
+            'barcode' => 'nullable|max:255'
         ]);
 
         $existingProduk = Produk::where('nama_produk', $request->nama_produk)->first();
