@@ -45,7 +45,7 @@
                     <h5 class="card-title">Transaction Detail for Transaction Code : {{ $kode_transaksi }}</h5>
                 </div>
                 <div class="card-body">
-                    <div class="table-responsive col-6">
+                    <div class="table-responsive col-6 no-print">
                         <table class="table mb-0 table-md">
                             <tbody>
                                 <tr>

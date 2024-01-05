@@ -43,10 +43,11 @@
                 </div>
                 <div class="card-body">
                     <div class="table-responsive">
-                        <button id="print-button" class="btn btn-primary mb-3"><i class="bi bi-printer"></i></button>
-                        <button id="save-csv-button" class="btn btn-primary mb-3"><i
+                        <button id="print-button" class="btn btn-primary mb-3 no-print"><i
+                                class="bi bi-printer"></i></button>
+                        <button id="save-csv-button" class="btn btn-primary mb-3 no-print"><i
                                 class="bi bi-filetype-csv"></i></button>
-                        <button id="save-excel-button" class="btn btn-primary mb-3"><i
+                        <button id="save-excel-button" class="btn btn-primary mb-3 no-print"><i
                                 class="bi bi-file-earmark-spreadsheet"></i></button>
 
                         <table class="table" id="table1">
