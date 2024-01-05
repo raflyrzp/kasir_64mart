@@ -125,7 +125,8 @@
                                         <td class="col-1">{{ $i + 1 }}</td>
                                         <td>{{ $diskon->nama_diskon }}</td>
                                         <td>{{ $diskon->besar_diskon }}%</td>
-                                        <td>{{ $diskon->tanggal_mulai }}</td>
+                                        <td class="{{ $diskon->tanggal_mulai > now() ? 'text-danger' : '' }}">
+                                            {{ $diskon->tanggal_mulai }}</td>
                                         <td class="{{ $diskon->tanggal_berakhir < now() ? 'text-danger' : '' }}">
                                             {{ $diskon->tanggal_berakhir }}</td>
                                         <td class="col-2">

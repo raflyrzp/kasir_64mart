@@ -21,7 +21,9 @@ class TransaksiController extends Controller
         $role = auth()->user()->role;
         $data_transaksi = Transaksi::all();
         $data_produk = Produk::all();
-        $data_diskon = Diskon::where('tanggal_berakhir', '>=', now())->get();
+        $data_diskon = Diskon::where('tanggal_mulai', '<=', now())
+            ->where('tanggal_berakhir', '>=', now())
+            ->get();
         $identitas = Identitas::findOrFail(1);
 
         if (count($data_produk) < 1) {

@@ -178,14 +178,6 @@
 
                                                 <div class="col-md-12 col-12">
                                                     <div class="form-group">
-                                                        <label for="payment">Payment</label>
-                                                        <input type="number" id="payment" class="form-control"
-                                                            name="payment" required>
-                                                    </div>
-                                                </div>
-
-                                                <div class="col-md-12 col-12">
-                                                    <div class="form-group">
                                                         <label for="id_diskon">Discount</label>
                                                         <select class="choices form-select" id="id_diskon"
                                                             name="id_diskon">
@@ -199,6 +191,16 @@
                                                         </select>
                                                     </div>
                                                 </div>
+
+                                                <div class="col-md-12 col-12">
+                                                    <div class="form-group">
+                                                        <label for="payment">Payment</label>
+                                                        <input type="number" id="payment" class="form-control"
+                                                            name="payment" required>
+                                                    </div>
+                                                </div>
+
+
 
                                                 <div class="col-md-12 col-12">
                                                     <div class="form-group">

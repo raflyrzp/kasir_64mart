@@ -21,6 +21,14 @@ class DashboardController extends Controller
         $total_penjualan_produk = DetailTransaksi::sum('kuantitas');
         $monthlyData = [];
 
+        $total_pemasukan_hari_ini = Transaksi::whereDate('tanggal_transaksi', Carbon::today())
+            ->sum('total_harga');
+        $total_pengeluaran_hari_ini = Pembelian::whereDate('tanggal_pembelian', Carbon::today())
+            ->sum('total_harga');
+        $keuntungan_hari_ini = $total_pemasukan_hari_ini - $total_pengeluaran_hari_ini;
+        $penjualan_hari_ini = DetailTransaksi::whereDate('created_at', Carbon::today())
+            ->sum('kuantitas');
+
         $total_seluruh_pemasukan = 0;
         $total_seluruh_pengeluaran = 0;
         $total_seluruh_keuntungan = 0;
@@ -64,6 +72,10 @@ class DashboardController extends Controller
                 'total_seluruh_pengeluaran' => $total_seluruh_pengeluaran,
                 'total_seluruh_keuntungan' => $total_seluruh_keuntungan,
                 'total_penjualan_produk' => $total_penjualan_produk,
+                'pemasukan_hari_ini' => $total_pemasukan_hari_ini,
+                'pengeluaran_hari_ini' => $total_pengeluaran_hari_ini,
+                'keuntungan_hari_ini' => $keuntungan_hari_ini,
+                'penjualan_hari_ini' => $penjualan_hari_ini,
                 'produk_menipis' => $produk_menipis,
                 'data_kategori' => $data_kategori,
                 'role' => $role

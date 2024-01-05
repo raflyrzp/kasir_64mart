@@ -67,7 +67,7 @@
                         </a>
                     </li>
 
-                    <li class="sidebar-title">Data</li>
+                    {{-- <li class="sidebar-title">Data</li>
 
                     <li
                         class="sidebar-item has-sub {{ $title === 'Products' || $title === 'Suppliers' || $title === 'Categories' ? 'active' : '' }}">
@@ -120,7 +120,7 @@
                             </li>
                         </ul>
 
-                    </li>
+                    </li> --}}
 
 
 

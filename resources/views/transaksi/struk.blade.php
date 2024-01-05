@@ -152,7 +152,7 @@
                 </tr>
                 <tr>
                     <td class="subtotal" colspan="2">Subtotal</td>
-                    <td style="text-align: end;">Rp {{ number_format($transaksi->total_harga, 0, ',', '.') }}</td>
+                    <td style="text-align: end;">Rp {{ number_format($transaksi->subtotal, 0, ',', '.') }}</td>
                 </tr>
                 <tr>
                     <td class="diskon" colspan="2">Diskon</td>
@@ -161,7 +161,7 @@
                 <tr>
                     <td class="total" colspan="2">Total</td>
                     <td style="text-align: end;">Rp
-                        {{ number_format($transaksi->total_harga * ((100 - $transaksi->diskon) / 100), 0, ',', '.') }}
+                        {{ number_format($transaksi->total_harga, 0, ',', '.') }}
                     </td>
                 </tr>
                 <tr>
